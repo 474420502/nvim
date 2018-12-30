@@ -135,11 +135,8 @@ let g:workspace_autosave_untrailspaces = 0
 let g:workspace_autosave_ignore = ['gitcommit', 'tagbar', 'nerdtree']
 let g:workspace_persist_undo_history = 0
 nmap ,s :ToggleWorkspace<CR>
-" autoformat
-" let g:autoformat_verbosemode=1
-" let g:formatter_yapf_style = 'pep8'
-" let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
-" let g:formatters_python = ['autopep8']
+
+" format setting
 noremap <F8> :Autoformat<CR>
 au FileType python noremap <F8> :Yapf<CR>
 
@@ -264,8 +261,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled = 1
+let g:jedi#auto_vim_configuration = 1
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<S-TAB>" : pumvisible() ? "\<S-TAB>" : "\<C-x>\<C-o>"
 
