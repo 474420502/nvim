@@ -28,6 +28,7 @@ Plug 'fisadev/fisa-vim-colorscheme'
 " Drag visual blocks
 Plug 'fisadev/dragvisuals.vim'
 " Plug 'tomasr/molokai'
+Plug 'mrk21/yaml-vim'
 
 Plug 'scrooloose/nerdtree'
 " Code commenter
