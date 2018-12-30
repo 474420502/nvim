@@ -1,8 +1,8 @@
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob('/etc/xdg/nvim/autoload/plug.vim'))
+  silent !curl -fLo /etc/xdg/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('/etc/xdg/nvim/plugged')
 " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
@@ -184,14 +184,14 @@ set scrolloff=3
 " (complete only the common part, list the options that match)
 set wildmode=list:longest
 " better backup, swap and undos storage
-set directory=~/.config/nvim/tmp     " directory to place swap files in
+set directory=/etc/xdg/nvim/tmp     " directory to place swap files in
 set backup                        " make backup files
-set backupdir=~/.config/nvim/dirs/backups " where to put backup files
+set backupdir=/etc/xdg/nvim/dirs/backups " where to put backup files
 set undofile                      " persistent undos - undo after you re-open the file
-set undodir=~/.config/nvim/dirs/undos
+set undodir=/etc/xdg/nvim/dirs/undos
 
 " store yankring history file there too
-let g:yankring_history_dir = '~/.config/nvim/dirs/'
+let g:yankring_history_dir = '/etc/xdg/nvim/dirs/'
 
 " create needed directories if they don't exist
 if !isdirectory(&backupdir)
