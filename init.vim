@@ -23,7 +23,11 @@ Plug 'ncm2/ncm2-path'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'tomasr/molokai'
+" Terminal Vim with 256 colors colorscheme
+Plug 'fisadev/fisa-vim-colorscheme' 
+" Drag visual blocks
+Plug 'fisadev/dragvisuals.vim'
+" Plug 'tomasr/molokai'
 
 Plug 'scrooloose/nerdtree'
 " Code commenter
@@ -124,7 +128,8 @@ set hlsearch
 
 " syntax highlight on
 syntax on
-colorscheme molokai
+" colorscheme molokai
+colorscheme fisa
 
 " show line numbers
 set nu
