@@ -256,13 +256,15 @@ let g:syntastic_python_pep8_args="--ignore=E501,W601,E402"
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "\<CR>" )
+    " return (pumvisible() ? "\<C-y>" : "\<CR>" )
+    return (pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>")
 endfunction
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=jedi#completions
+" autocmd FileType python setlocal omnifunc=ncm2_jedi#on_complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -388,5 +390,3 @@ highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
