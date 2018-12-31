@@ -68,6 +68,7 @@ Plug 'junegunn/fzf.vim'
 
 " Plugins from github repos:
 Plug 'davidhalter/jedi-vim'
+" Plug 'python-mode/python-mode'
 " Window chooser
 Plug 't9md/vim-choosewin'
 " Python and other languages code checker
@@ -268,7 +269,7 @@ autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-
+let g:jedi#show_call_signatures = "2"
 let g:jedi#completions_enabled = 1
 let g:jedi#auto_vim_configuration = 1
 
