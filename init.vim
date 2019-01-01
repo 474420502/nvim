@@ -134,7 +134,7 @@ syntax on
 colorscheme fisa
 
 " show line numbers
-set nu
+set nonumber
 " autosession
 let g:workspace_session_name = '.session.vim'
 let g:workspace_autosave_always = 1
