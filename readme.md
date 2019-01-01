@@ -3,10 +3,9 @@
 
 sudo apt install gperf libluajit-5.1-dev libunibilium-dev libmsgpack-dev libtermkey-dev libvterm-dev libjemalloc-dev tmux && sudo pip3 install neovim
 
-git clone https://github.com/neovim/neovim
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-
+git clone https://github.com/neovim/neovim  
+make CMAKE_BUILD_TYPE=RelWithDebInfo  
+sudo make install  
 编译安装neovim后
 ---
 
