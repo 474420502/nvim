@@ -68,20 +68,7 @@ Plug 'junegunn/fzf.vim'
 
 " Plugins from github repos:
 Plug 'davidhalter/jedi-vim'
-" Plug 'python-mode/python-mode'
-" Window chooser
-Plug 't9md/vim-choosewin'
-" Python and other languages code checker
-Plug 'scrooloose/syntastic'
-" Paint css colors with the real color
-Plug 'lilydjwg/colorizer'
-" autocmd pep8 format
-Plug 'mindriot101/vim-yapf'
-"  format
-Plug 'Chiel92/vim-autoformat'
 " search 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
 " on/off. When the plugin is present, will always activate the relative
