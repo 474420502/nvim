@@ -63,7 +63,7 @@ Plug 'mindriot101/vim-yapf'
 "  format
 Plug 'Chiel92/vim-autoformat'
 " search 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '/opt/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Plugins from github repos:
