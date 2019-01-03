@@ -18,6 +18,8 @@ set completeopt=noinsert,menuone,noselect
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-markdown-subscope'
+
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -28,7 +30,7 @@ Plug 'fisadev/fisa-vim-colorscheme'
 " Drag visual blocks
 Plug 'fisadev/dragvisuals.vim'
 " Plug 'tomasr/molokai'
-Plug 'mrk21/yaml-vim'
+Plug 'stephpy/vim-yaml'
 
 Plug 'scrooloose/nerdtree'
 " Code commenter
@@ -370,11 +372,10 @@ au FileType go let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes
 " au FileType go let g:go_list_type = "quickfix"
 "
 
-" nicer colors
-highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
+" c-j c-k for moving in snippet
+" let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
