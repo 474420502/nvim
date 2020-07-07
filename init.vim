@@ -1,4 +1,5 @@
 if empty(glob('/etc/xdg/nvim/autoload/plug.vim'))
+  echoerr 'please install curl, pep8, silversearcher-ag, yapf'
   silent !curl -fLo /etc/xdg/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
@@ -40,9 +41,9 @@ Plug 'majutsushi/tagbar'
 " Zen coding
 Plug 'mattn/emmet-vim'
 " Session
-Plug 'thaerkh/vim-workspace'
+" Plug 'thaerkh/vim-workspace'
 " Git integration
-Plug 'motemen/git-vim'
+" Plug 'motemen/git-vim'
 " Tab list panel
 Plug 'kien/tabman.vim'
 " Consoles as buffers
@@ -57,7 +58,8 @@ Plug 'jiangmiao/auto-pairs'
 " Window chooser
 Plug 't9md/vim-choosewin'
 " Python and other languages code checker
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 " Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
 " autocmd pep8 format
@@ -70,6 +72,9 @@ Plug 'junegunn/fzf.vim'
 
 " Plugins from github repos:
 Plug 'davidhalter/jedi-vim'
+
+" Plugins db sql complete
+Plug 'vim-scripts/dbext.vim'
 " search 
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
@@ -234,13 +239,26 @@ nnoremap <silent> <Leader>w :Ag! <cword><CR>
 " show list of errors and warnings on the current file
 nmap <leader>e :Errors<CR>
 " check also when just opened the file
-let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_open = 1
 " don't put icons on the sign column (it hides the vcs status icons of signify)
-let g:syntastic_enable_signs = 0
+" let g:syntastic_enable_signs = 0
 
-let g:syntastic_python_checkers=["pep8"]
-let g:syntastic_python_flake8_args="--ignore=E501,W601,E402"
-let g:syntastic_python_pep8_args="--ignore=E501,W601,E402"
+" let g:syntastic_python_checkers=["pep8"]
+" let g:syntastic_python_flake8_args="--ignore=E501,W601,E402"
+" let g:syntastic_python_pep8_args="--ignore=E501,W601,E402"
+
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')
+" When writing a buffer (no delay), and on normal mode changes (after 750ms).
+call neomake#configure#automake('nw', 750)
+" When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('rw', 1000)
+" Full config: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 500ms; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
+let g:neomake_python_enabled_makers = ['pep8']
+" let g:neomake_python_flake8_maker = {'args': ['--ignore=E501,W601,E402', '--format=default']}
+let g:neomake_python_pep8_maker = {'args': ['--ignore=E501,W601,E402', '--format=default'],}
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
