@@ -1,7 +1,7 @@
 if empty(glob('/etc/xdg/nvim/autoload/plug.vim'))
-  echoerr 'please install curl, pep8, silversearcher-ag, yapf'
-  silent !curl -fLo /etc/xdg/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+	echoerr 'please install curl, pep8, silversearcher-ag, yapf'
+	silent !curl -fLo /etc/xdg/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
 endif
 call plug#begin('/etc/xdg/nvim/plugged')
 " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
@@ -21,13 +21,12 @@ Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-markdown-subscope'
 
-
-" Airline
+"Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Terminal Vim with 256 colors colorscheme
-Plug 'fisadev/fisa-vim-colorscheme' 
+Plug 'fisadev/fisa-vim-colorscheme'
 " Drag visual blocks
 Plug 'fisadev/dragvisuals.vim'
 " Plug 'tomasr/molokai'
@@ -43,7 +42,7 @@ Plug 'mattn/emmet-vim'
 " Session
 " Plug 'thaerkh/vim-workspace'
 " Git integration
-" Plug 'motemen/git-vim'
+Plug 'tpope/vim-fugitive'
 " Tab list panel
 Plug 'kien/tabman.vim'
 " Consoles as buffers
@@ -54,6 +53,7 @@ Plug 'fisadev/FixedTaskList.vim'
 Plug 'tpope/vim-surround'
 " Autoclose
 Plug 'jiangmiao/auto-pairs'
+
 
 " Window chooser
 Plug 't9md/vim-choosewin'
@@ -66,7 +66,7 @@ Plug 'lilydjwg/colorizer'
 Plug 'mindriot101/vim-yapf'
 "  format
 Plug 'Chiel92/vim-autoformat'
-" search 
+" search
 Plug 'junegunn/fzf', { 'dir': '/opt/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -75,7 +75,7 @@ Plug 'davidhalter/jedi-vim'
 
 " Plugins db sql complete
 Plug 'vim-scripts/dbext.vim'
-" search 
+" search
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
 " on/off. When the plugin is present, will always activate the relative
@@ -84,16 +84,16 @@ Plug 'vim-scripts/dbext.vim'
 
 " Plug 'artur-shaik/vim-javacomplete2'
 
-"  golang 
+"  golang
 Plug 'fatih/vim-go'
-" html js  
+" html js
 Plug 'tomtom/tlib_vim'
 
 call plug#end()
 
 " Vim settings and mappings
 " You can edit them as you wish
-" coding 
+" coding
 set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,gbk,latin1
@@ -139,7 +139,7 @@ nmap ,s :ToggleWorkspace<CR>
 
 " format setting
 noremap <F8> :Autoformat<CR>
-au FileType python noremap <F8> :Yapf<CR>
+" au FileType python noremap <F8> :Yapf<CR>
 
 " tab navigation mappings
 map tn :tabn<CR>
@@ -191,13 +191,13 @@ let g:yankring_history_dir = '/etc/xdg/nvim/dirs/'
 
 " create needed directories if they don't exist
 if !isdirectory(&backupdir)
-    call mkdir(&backupdir, "p")
+	call mkdir(&backupdir, "p")
 endif
 if !isdirectory(&directory)
-    call mkdir(&directory, "p")
+	call mkdir(&directory, "p")
 endif
 if !isdirectory(&undodir)
-    call mkdir(&undodir, "p")
+	call mkdir(&undodir, "p")
 endif
 
 " Plugins settings and mappings
@@ -224,14 +224,14 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " show pending tasks list
 map <F2> :TaskList<CR>
 
-" fzf 
+" fzf
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
+			\ call fzf#vim#ag(<q-args>,
+			\                 <bang>0 ? fzf#vim#with_preview('up:60%')
+			\                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+			\                 <bang>0)
 nnoremap <silent> <Leader>a :Ag <CR>
 nnoremap <silent> <Leader>w :Ag! <cword><CR>
 " Syntastic ------------------------------
@@ -264,8 +264,8 @@ let g:neomake_python_pep8_maker = {'args': ['--ignore=E501,W601,E402', '--format
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-    " return (pumvisible() ? "\<C-y>" : "\<CR>" )
-    return (pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>")
+	" return (pumvisible() ? "\<C-y>" : "\<CR>" )
+	return (pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>")
 endfunction
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -286,8 +286,8 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>
 
 
 function! s:check_back_space() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~ '\s'
 endfunction "}}
 
 " TabMan ------------------------------
@@ -300,6 +300,8 @@ let g:tabman_focus  = 'tf'
 
 " Fix to let ESC work as espected with Autoclose plugin
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+let g:AutoPairsMultilineClose = 0
+let g:AutoPairsMapBS = 0
 
 " DragVisuals ------------------------------
 
@@ -342,7 +344,7 @@ let g:airline#extensions#tabline#show_close_button = 0
 
 set backspace=indent,eol,start
 if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")| exe "normal g'\"" | endif
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")| exe "normal g'\"" | endif
 endif
 
 " au FileType go let g:mapleader = "`"
