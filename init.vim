@@ -5,21 +5,21 @@ if empty(glob('/etc/xdg/nvim/autoload/plug.vim'))
 endif
 call plug#begin('/etc/xdg/nvim/plugged')
 " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
-Plug 'ncm2/ncm2'
+" Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-markdown-subscope'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-markdown-subscope'
 
 "Airline
 Plug 'vim-airline/vim-airline'
@@ -44,11 +44,11 @@ Plug 'mattn/emmet-vim'
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Tab list panel
-Plug 'kien/tabman.vim'
+" Plug 'kien/tabman.vim'
 " Consoles as buffers
 Plug 'rosenfeld/conque-term'
 " Pending tasks list
-Plug 'fisadev/FixedTaskList.vim'
+" Plug 'fisadev/FixedTaskList.vim'
 " Surround
 Plug 'tpope/vim-surround'
 " Autoclose
@@ -56,7 +56,7 @@ Plug 'jiangmiao/auto-pairs'
 
 
 " Window chooser
-Plug 't9md/vim-choosewin'
+" Plug 't9md/vim-choosewin'
 " Python and other languages code checker
 " Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'
@@ -222,7 +222,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " Tasklist ------------------------------
 
 " show pending tasks list
-map <F2> :TaskList<CR>
+" map <F2> :TaskList<CR>
 
 " fzf
 nnoremap <silent> <Leader>f :Files<CR>
@@ -285,10 +285,10 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<S-
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : pumvisible() ? "\<TAB>" : "\<C-x>\<C-o>"
 
 
-function! s:check_back_space() "{{{
+function! s:check_back_space() 
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~ '\s'
-endfunction "}}
+endfunction
 
 " TabMan ------------------------------
 
